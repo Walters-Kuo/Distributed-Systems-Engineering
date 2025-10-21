@@ -7,29 +7,49 @@ What I mean by "distributed system":　a group of computers cooperating to provi
 Examples
 we all use distributed systems, popular apps' back-ends, e.g. for messaging、big web sites、 phone system
 我們都使用分散式系統，流行應用程序的後端，例如用於消息傳遞、大型網站、電話系統
-focus here is distributed infrastructure: 這裡的重點是分散式基礎設施
-  - storage 存儲
-  - transaction systems 交易系統
-  - "big data" processing frameworks “大數據”、處理框架
-  - authentication services 身份驗證服務
+focus here is distributed infrastructure:
+  - storage
+  - transaction systems
+  - "big data" processing frameworks
+  - authentication services
+這裡的重點是分散式基礎設施:
+  - 存儲
+  - 交易系統
+  - “大數據”、處理框架
+  - 身份驗證服務
 
-It's not easy to build systems this way: 這樣建系統並不容易
-  - concurrency 並發性
-  - complex interactions 複雜的交互作用
-  - performance bottlenecks 效能瓶頸
-  - partial failure 部分故障
+It's not easy to build systems this way:
+  - concurrency
+  - complex interactions
+  - performance bottlenecks
+  - partial failure
+這樣建系統並不容易:
+  - 並發性
+  - 複雜的交互作用
+  - 效能瓶頸
+  - 部分故障
 
-So why do people build distributed systems? 那麼為什麼要建立分散式系統呢？
-  - to increase capacity via parallel processing 通過並行處理增加處理量
-  - to tolerate faults via replication　通過複製容許故障(容錯)
-  - to match distribution of physical devices e.g. sensors 匹配實體設備（例如感測器）的分佈
-  - to increase security via isolation 通過隔離提高安全性
+So why do people build distributed systems?
+  - to increase capacity via parallel processing
+  - to tolerate faults via replication
+  - to match distribution of physical devices e.g. sensors
+  - to increase security via isolation
+那麼為什麼要建立分散式系統呢？
+  - 通過並行處理增加處理量
+  - 通過複製容許故障(容錯)
+  - 匹配實體設備（例如感測器）的分佈
+  - 通過隔離提高安全性
 
-Why study this topic? 為什麼要研讀這個主題？
-  - interesting -- hard problems, powerful solutions 有趣——難題，強大的解決方案
-  - widely used -- driven by the rise of big Web sites 廣泛使用——由大型網站的興起推動
-  - active research area -- important unsolved problems 活躍的研究領域——未解決的重要問題
-  - challenging to build -- you'll do it in the labs 構建具有挑戰性——您將在實驗中完成
+Why study this topic?
+  - interesting -- hard problems, powerful solutions
+  - widely used -- driven by the rise of big Web sites
+  - active research area -- important unsolved problems
+  - challenging to build -- you'll do it in the labs
+為什麼要研讀這個主題？
+  - 有趣——難題，強大的解決方案
+  - 廣泛使用——由大型網站的興起推動
+  - 活躍的研究領域——未解決的重要問題
+  - 構建具有挑戰性——您將在實驗中完成
 
 COURSE STRUCTURE  課程結構
 http://pdos.csail.mit.edu/6.5840
@@ -54,14 +74,14 @@ Papers: 論文
   and we ask you to send us a question you have about the paper
   submit answer and question before start of lecture
 論文要求：
-  - 每堂課一篇論文
-  - 每場講座對應一篇研究論文，包含經典和新近論文
-  - 論文討論問題、想法、實現細節和評估
-  - 課前閱讀：請在課前閱讀指定論文！
-  - 網站作業：
-    網站上針對每篇論文提供一個必需回答簡短的問題
-    請提交一個對該論文的問題
-  - 在講座開始前提交答案和問題
+  . 每堂課一篇論文
+  . 每場講座對應一篇研究論文，包含經典和新近論文
+  . 論文討論問題、想法、實現細節和評估
+  . 課前閱讀：請在課前閱讀指定論文！
+  . 網站作業：
+    - 網站上針對每篇論文提供一個必需回答簡短的問題
+    - 請提交一個你對該論文的問題
+    - 在講座開始前提交答案和問題
 
 Exams:
   - Mid-term exam in class
