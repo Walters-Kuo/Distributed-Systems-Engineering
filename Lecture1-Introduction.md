@@ -1,150 +1,122 @@
-6.5840 2025 Lecture 1: Introduction
-6.5840 2025 第一講：簡介
+6.5840 2025 Lecture 1: Introduction MIT Distributed Systems Engineering 
+MIT 6.824 分散式系統課程：講義 1 概述
 
-6.5840: Distributed Systems Engineering
-6.5840：分佈式系統工程
-
-What I mean by "distributed system":
-  a group of computers cooperating to provide a service
-我所說的「分散式系統」是什麼意思：一組電腦合作提供服務
+What I mean by "distributed system":　a group of computers cooperating to provide a service
+所謂的「分散式系統」是什麼意思：一組電腦合作提供服務
 
 Examples
-  we all use distributed systems
-    popular apps' back-ends, e.g. for messaging
-    big web sites
-    phone system
-  focus here is distributed infrastructure:
-    storage
-    transaction systems
-    "big data" processing frameworks
-    authentication services
-例如，我們都使用分佈式系統、流行應用程序的後端，例如用於消息傳遞、大型網站、電話系統、這裡的重點是分佈式基礎設施：存儲、交易系統、“大數據”、處理框架、身份驗證服務
+  we all use distributed systems, popular apps' back-ends, e.g. for messaging、big web sites、 phone system
+    我們都使用分佈式系統，流行應用程序的後端，例如用於消息傳遞、大型網站、電話系統
+  focus here is distributed infrastructure: 這裡的重點是分佈式基礎設施
+    storage 存儲
+    transaction systems 交易系統
+    "big data" processing frameworks “大數據”、處理框架
+    authentication services 身份驗證服務
 
-It's not easy to build systems this way:
-  concurrency
-  complex interactions
-  performance bottlenecks
-  partial failure
-這樣建系統並不容易：並發性、複雜的交互、效能瓶頸、部分故障
+It's not easy to build systems this way: 這樣建系統並不容易
+  concurrency 並發性
+  complex interactions 複雜的交互作用
+  performance bottlenecks 效能瓶頸
+  partial failure 部分故障
 
-So why do people build distributed systems?
-  to increase capacity via parallel processing
-  to tolerate faults via replication
-  to match distribution of physical devices e.g. sensors
-  to increase security via isolation
-那麼人們為什麼要建立分散式系統呢？通過並行處理增加容量，通過複製容忍故障，以匹配物理設備的分佈，例如傳感器，通過隔離提高安全性
+So why do people build distributed systems? 那麼為什麼要建立分散式系統呢？
+  to increase capacity via parallel processing 通過並行處理增加處理量
+  to tolerate faults via replication　通過複製容許故障(容錯)
+  to match distribution of physical devices e.g. sensors 匹配實體設備（例如感測器）的分佈
+  to increase security via isolation 通過隔離提高安全性
 
-Why study this topic?
-  interesting -- hard problems, powerful solutions
-  widely used -- driven by the rise of big Web sites
-  active research area -- important unsolved problems
-  challenging to build -- you'll do it in the labs
-為什麼要研讀這個主題？有趣——難題，廣泛使用的強大解決方案——由大型網站的興起推動，活躍的研究領域——難以構建的重要未解決問題——你將在實驗室裡完成
+Why study this topic? 為什麼要研讀這個主題？
+  interesting -- hard problems, powerful solutions 有趣——難題，強大的解決方案
+  widely used -- driven by the rise of big Web sites 廣泛使用——由大型網站的興起推動
+  active research area -- important unsolved problems 活躍的研究領域——未解決的重要問題
+  challenging to build -- you'll do it in the labs 構建具有挑戰性——您將在實驗室中完成
 
 COURSE STRUCTURE  課程結構
-
 http://pdos.csail.mit.edu/6.5840
-
-Course staff:
-  Frans Kaashoek and Robert Morris, lecturers
+Course staff: 課程工作人員
+  Frans Kaashoek and Robert Morris, lecturers 講師
   Kenneth Choi, TA
   Yun-Sheng Chang, TA
   Ivy Wu, TA
   Aryan Kumar, TA
-課程工作人員：Frans Kaashoek 和 Robert Morris，講師 Kenneth Choi、TA Yun-Sheng Chang、TA Ivy Wu、TA Aryan Kumar，TA
-
-Course components:
-  lectures
-  papers
-  two exams
-  labs
-  final project (optional)
+Course components : lectures, papers, two exams, labs, final project (optional)
 課程組成部分：講座、試卷、兩次考試、實驗室、期末專案（可選）
 
-Lectures:
-  big ideas, paper discussion, lab guidance
+Lectures : big ideas, paper discussion, lab guidance
 講座：大創意、論文討論、實驗室指導
 
-Papers:
-  one per lecture
-  research papers, some classic, some new
-  problems, ideas, implementation details, evaluation
-  please read papers before class!
-  web site has a short question for you to answer about each paper
-  and we ask you to send us a question you have about the paper
-  submit answer and question before start of lecture
-論文：每講一篇研究論文，一些經典，一些新問題，想法，實施細節，評價請在課前閱讀論文！網站上有一個關於每篇論文的簡短問題供您回答，我們要求您在講座開始前向我們發送您對論文提出的疑問提交答案和問題
+Papers: 論文
+  one per lecture 每堂課一篇論文
+  research papers, some classic, some new 每場講座對應一篇研究論文，包含經典和新近論文
+  problems, ideas, implementation details, evaluation 內容涵蓋：論文討論問題、想法、實現細節和評估
+  please read papers before class! 請在課前閱讀指定論文
+  web site has a short question for you to answer about each paper 網站上針對每篇論文提供一個簡短問題，需回答
+  and we ask you to send us a question you have about the paper　請提交一個你對該論文的問題
+  submit answer and question before start of lecture 在講座開始前提交答案和問題
 
 Exams:
-  Mid-term exam in class
-  Final exam during finals week
-  Mostly about papers and labs
-  You must attend the exams!
-考試：課堂期中考試 期末考試週期末考試 主要關於論文和實驗室 你必須參加考試！
+  Mid-term exam in class 課堂期中考
+  Final exam during finals week 在最後一周期末考試
+  Mostly about papers and labs 主要關於論文和實驗室
+  You must attend the exams! 你必須參加考試！
 
 Labs:
-  goal: use and implement some important techniques
-  goal: experience with distributed programming
-  first lab is due a week from Friday
-  one per week after that for a while
-實驗室：目標：使用和實施一些重要技術 目標：分佈式編程經驗 第一個實驗室從星期五開始一周到期，之後每週一次，持續一段時間
+  goal: use and implement some important techniques 使用和實施一些重要技術
+  goal: experience with distributed programming 分散式程式設計經驗
+  first lab is due a week from Friday 第一個實驗室從星期五開始一周到期
+  one per week after that for a while 之後每週一次，持續一段時間
 
-Lab 1: distributed big-data framework (like MapReduce)
-Lab 2: client/server vs unreliable network
-Lab 3: fault tolerance using replication (Raft)
-Lab 4: a fault-tolerant database
-Lab 5: scalable database performance via sharding
-實驗室 1：分散式大數據框架（如 MapReduce） 實驗室 2：用戶端/伺服器與不可靠的網路 實驗室 3：使用複製 （Raft） 的容錯 實驗室 4：容錯資料庫 實驗室 5：透過分片可擴展的資料庫效能
+Lab 1: distributed big-data framework (like MapReduce)　實驗室 1：分散式大數據框架（如 MapReduce）
+Lab 2: client/server vs unreliable network　實驗室 2：客戶端/伺服器 vs. 不可靠網路
+Lab 3: fault tolerance using replication (Raft)　實驗室 3：使用複製實現容錯（Raft 算法）
+Lab 4: a fault-tolerant database 實驗室 4：容錯資料庫
+Lab 5: scalable database performance via sharding 實驗室 5：透過分片提升資料庫可擴展性效能
+ 
+We grade the labs using a set of tests, we give you all the tests; none are secret
+評分方式：我們使用一組測試來評分實驗，所有測試均公開，沒有隱藏測試
 
-We grade the labs using a set of tests
-  we give you all the tests; none are secret
-我們使用一組測試對實驗室進行評分，我們為您提供所有測試;沒有一個是秘密的
+Optional final project at the end, in groups of 2 or 3. 期末專案（選修）：以 2 或 3 人為一組進行
+  The final project substitutes for Lab 5. 期末專案可替代實驗 5
+  You think of a project and clear it with us. 需自行構思專案並與我們確認
+  Code, short write-up, demo on last day. 需提交程式碼、簡短報告，並在最後一天進行展示
 
-Optional final project at the end, in groups of 2 or 3.
-  The final project substitutes for Lab 5.
-  You think of a project and clear it with us.
-  Code, short write-up, demo on last day.
-最後可選的最終項目，以 2 或 3 人為一組。最終項目取代了實驗室 5。您想到一個項目並與我們一起清除它。代碼、簡短的文章、最後一天的演示。
-
-Warning: debugging the labs can be time-consuming
-  start early
-  ask questions on Piazza
-  use the TA office hours
-警告：調試實驗室可能非常耗時 儘早開始 在 Piazza 上提問 使用 TA 辦公時間
+Warning: 注意事項：
+  debugging the labs can be time-consuming 實驗室作業除錯可能耗時
+  start early 提早開始
+  ask questions on Piazza 在 Piazza 上提問
+  use the TA office hours 善用助教（TA Teaching Assistant）辦公時間
 
 MAIN TOPICS  主要主題
-
-This is a course about infrastructure for applications.
-  * Storage.
-  * Communication.
-  * Computation.
-這是一門關於應用程序基礎設施的課程。*倉庫。*傳達。* 計算。
+This is a course about infrastructure for applications.本課程聚焦於應用程式的基礎設施
+  * Storage.儲存
+  * Communication.通訊
+  * Computation.運算
 
 A big goal: hide the complexity of distribution from applications.
-一個大目標：向應用程式隱藏分發的複雜性。
+核心目標：對應用程式隱藏分散式系統的複雜性
 
-Topic: fault tolerance
-  1000s of servers, big network -> always something broken
-    We'd like to hide these failures from the application.
-    "High availability": service continues despite failures
-  Big idea: replicated servers.
-    If one server crashes, can proceed using the other(s).
-主題：容錯 數千台服務器、大網絡 - 總是有損壞的東西>我們想向應用程序隱藏這些故障。「高可用性」：儘管失敗，服務仍繼續 大創意：複製的伺服器。如果一台服務器崩潰，可以使用另一台服務器繼續。
+Topic: fault tolerance　主題：容錯
+  1000s of servers, big network -> always something broken 在數千台伺服器和大型網絡中，總有部分元件會故障
+    We'd like to hide these failures from the application 目標：對應用程式隱藏這些故障
+    "High availability": service continues despite failures 高可用性：即使發生故障，服務仍能繼續運行
+  Big idea: replicated servers. 核心概念：複製伺服器
+    If one server crashes, can proceed using the other(s).若一台伺服器當機，可使用其他伺服器繼續運作
 
-Topic: consistency
-  General-purpose infrastructure needs well-defined behavior.
+Topic: consistency　主題：一致性
+  General-purpose infrastructure needs well-defined behavior.　
     E.g. "read(x) yields the value from the most recent write(x)."
+  通用基礎設施需要明確定義的行為：例如：「read(x) 應返回最近一次 write(x) 的值。」
+  
   Achieving good behavior is hard!
     e.g. "replica" servers are hard to keep identical.
-主題：一致性一般用途基礎結構需要明確定義的行為。例如，“read（x） 產生最近一次 write（x） 的值。要達到良好的行為是很難的！例如，「複本」伺服器很難保持相同。
+實現良好行為的挑戰：例如：保持「複製」伺服器完全一致非常困難
 
-Topic: performance
-  The goal: scalable throughput
-    Nx servers -> Nx total throughput via parallel CPU, RAM, disk, net.
-  Scaling gets harder as N grows:
-    Load imbalance.
-    Slowest-of-N latency.
-主題：效能 目標：可擴展的輸送量 Nx 伺服器 -> Nx 透過平行 CPU、RAM、磁碟、網路的總輸送量。隨著 N 的增長，擴展變得更加困難：負載不平衡。N 個延遲中最慢。
+Topic: performance　主題：效能
+  The goal: scalable throughput　Nx servers -> Nx total throughput via parallel CPU, RAM, disk, net.
+  目標：可擴展的吞吐量：N 台伺服器應實現 N 倍總吞吐量，透過並行使用 CPU、記憶體、磁碟和網路
+  Scaling gets harder as N grows:　隨著 N 增加，擴展難度加大：
+    Load imbalance.負載不平衡
+    Slowest-of-N latency.　N 台伺服器中最慢的延遲（slowest-of-N latency）
 
 Topic: tradeoffs
   Fault-tolerance, consistency, and performance are enemies.
@@ -156,9 +128,18 @@ Topic: tradeoffs
     e.g. read(x) might *not* yield the latest write(x)!
     Painful for application programmers (or users).
   We'll see many design points in the consistency/performance spectrum.
-主題：權衡容錯、一致性和效能是敵人。容錯和一致性需要通信，例如，將數據發送到備份服務器，例如，檢查緩存數據是否是最新的，通信通常緩慢且不可擴展，許多設計犧牲一致性來獲得速度。例如，read（x） 可能 *不會* 產生最新的 write（x）！對應用程式設計師（或使用者）來說是痛苦的。我們將在一致性/性能範圍內看到許多設計點。
+主題：權衡
+容錯、一致性和效能相互衝突：
+  容錯和一致性需要通訊：
+    例如：將數據傳送到備份伺服器。
+    例如：檢查快取數據是否為最新。
+    通訊通常緩慢且不具可擴展性。
+許多設計犧牲一致性以換取速度：
+  例如：read(x) 可能無法返回最新的 write(x)！
+  這對應用程式開發者（或用戶）來說很麻煩。
+我們將探討一致性與效能光譜中的多種設計點。
 
-Topic: implementation
+Topic: implementation 主題：一致性
   RPC, threads, concurrency control, configuration.
   The labs...
 主題：實作 RPC、執行緒、並發控制、配置。實驗室......
